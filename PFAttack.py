@@ -55,11 +55,11 @@ print(f"Training on {DEVICE} using Pytorch {torch.__version__} Flower {fl.__vers
 
 
 def setup_seed(seed=0):
-    torch.manual_seed(seed)  # 为CPU设置随机种子
-    torch.cuda.manual_seed_all(seed)  # 为所有GPU设置随机种子
+    torch.manual_seed(seed)  
+    torch.cuda.manual_seed_all(seed)  
     np.random.seed(seed)  # Numpy module.
     random.seed(seed)  # Python random module.
-    torch.backends.cudnn.deterministic = True  # 为了保证每次结果一样
+    torch.backends.cudnn.deterministic = True  
 
 
 """ parameters configuration"""
@@ -852,7 +852,7 @@ class Server:
             clients[i].attacker = True
         for t in range(1, self.training_rounds + 1):
             print(f"---------------------{t}-th training round --------------------- ")
-            # 一个攻击者，且只开始被选中一次
+           
             if args.single_choose == True:
                 print("Single Attack ")
                 if t == 1:
